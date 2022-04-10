@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <math.h>
-#include "../Headers/file.h"
+#include "file.h"
 typedef int Status;//函数返回类型
 
 
@@ -42,20 +42,17 @@ Status InsertNewUser(UserList* L, UserInfo* data);//加入新用户
 UserNode* SearchUser(UserList L, const char* userid);//寻找用户返回其节点的地址,如果没有就返回NULL
 int getstring(int num, char* str);//读取字符串
 long long getlonglong(long long* num);//读取数字
-Status getint(int* num); //获取数字
-/***********需要测试************************/
+int getint(int* num); //获取数字
 Status FileSave(UserInfo* user);//文件保存
-/***********需要测试************************/
 //注册一个新用户,同时创建一个以用户名为名称的文件夹，保存到以(user.id+.info)的文件中
 void RegisterUser(UserList* L, FileType file[], int* n);
 Status InitUserInfo(UserList* L);//初始化用户信息
 Status FileUpdata(UserList L);//文件更新数据 
 Status FindPasswod(UserList L);//找回密码
-/************需要测试**********************/
 //用户登录，并初始化file, 以及n的值, 并建一颗树
 UserNode* LogUser(UserList L, FileType file[], int* n, FileTree* Userrootfile);//用户登录
 
-
+void usermenu(void);//用户界面
 
 
 #endif
